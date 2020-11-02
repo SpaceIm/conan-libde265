@@ -10,7 +10,7 @@ class Libde265Conan(ConanFile):
     topics = ("conan", "libde265", "codec", "video", "h.265")
     homepage = "https://github.com/strukturag/libde265"
     url = "https://github.com/conan-io/conan-center-index"
-    exports_sources = ["CMakeLists.txt", "patches/**"]
+    exports_sources = "CMakeLists.txt"
     generators = "cmake"
     settings = "os", "arch", "compiler", "build_type"
     options = {
@@ -45,8 +45,6 @@ class Libde265Conan(ConanFile):
         os.rename(self.name + "-" + self.version, self._source_subfolder)
 
     def _patch_sources(self):
-        for patch in self.conan_data.get("patches", {}).get(self.version, []):
-            tools.patch(**patch)
         tools.replace_in_file(os.path.join(self._source_subfolder, "CMakeLists.txt"),
                               "set(CMAKE_POSITION_INDEPENDENT_CODE ON)", "")
 
@@ -75,6 +73,10 @@ class Libde265Conan(ConanFile):
         self.cpp_info.names["cmake_find_package_multi"] = "libde265"
         self.cpp_info.names["pkg_config"] = "libde265"
         if self.settings.os == "Linux":
-            self.cpp_info.system_libs = ["pthread"]
+            self.cpp_info.system_libs = ["m", "pthread"]
         if not self.options.shared and tools.stdcpp_library(self):
             self.cpp_info.system_libs.append(tools.stdcpp_library(self))
+
+        bin_path = os.path.join(self.package_folder, "bin")
+        self.output.info("Appending PATH environment variable: {}".format(bin_path))
+        self.env_info.PATH.append(bin_path)
