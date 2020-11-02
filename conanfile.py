@@ -54,6 +54,7 @@ class Libde265Conan(ConanFile):
         if self._cmake:
             return self._cmake
         self._cmake = CMake(self)
+        self._cmake.definitions["CMAKE_POSITION_INDEPENDENT_CODE"] = self.options.get_safe("fPIC", True)
         self._cmake.definitions["DISABLE_SSE"] = not self.options.sse
         self._cmake.configure()
         return self._cmake
