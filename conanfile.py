@@ -72,6 +72,8 @@ class Libde265Conan(ConanFile):
         self.cpp_info.names["cmake_find_package"] = "libde265"
         self.cpp_info.names["cmake_find_package_multi"] = "libde265"
         self.cpp_info.names["pkg_config"] = "libde265"
+        if not self.options.shared:
+            self.cpp_info.defines = ["LIBDE265_STATIC_BUILD"]
         if self.settings.os == "Linux":
             self.cpp_info.system_libs = ["m", "pthread"]
         if not self.options.shared and tools.stdcpp_library(self):
