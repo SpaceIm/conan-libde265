@@ -4,7 +4,7 @@
 
 | Windows | Linux | macOS |
 |:-------:|:-----:|:-----:|
-|[![Build status](https://ci.appveyor.com/api/projects/status/vqck28o9u8tijd6u/branch/testing%2F1.0.8?svg=true)](https://ci.appveyor.com/project/SpaceIm/conan-libde265)|[![Build status](https://github.com/SpaceIm/conan-libde265/workflows/.github/workflows/conan.yml/badge.svg?branch=testing%2F1.0.8)](https://github.com/SpaceIm/conan-libde265/actions?query=branch%3Atesting%2F1.0.8)|[![Build Status](https://travis-ci.com/SpaceIm/conan-libde265.svg?branch=testing%2F1.0.8)](https://travis-ci.com/SpaceIm/conan-libde265)|
+|[![Build status](https://ci.appveyor.com/api/projects/status/vqck28o9u8tijd6u/branch/testing%2F1.0.8?svg=true)](https://ci.appveyor.com/project/SpaceIm/conan-libde265)|[![Build status](https://github.com/SpaceIm/conan-libde265/workflows/.github/workflows/linux.yml/badge.svg?branch=testing%2F1.0.8)](https://github.com/SpaceIm/conan-libde265/actions/workflows/linux.yml?query=branch%3Atesting%2F1.0.8)|[![Build status](https://github.com/SpaceIm/conan-libde265/workflows/.github/workflows/macos.yml/badge.svg?branch=testing%2F1.0.8)](https://github.com/SpaceIm/conan-libde265/actions/workflows/macos.yml?query=branch%3Atesting%2F1.0.8)|
 
 ## Description
 
